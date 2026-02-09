@@ -1,0 +1,757 @@
+<!doctype html> 
+ <html lang="pt-BR"> 
+   <head> 
+     <meta charset="UTF-8" /> 
+     <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; img-src 'self' data: https:;">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+     <meta name="description" content="Capacitta: cursos 100% EAD com conteúdo objetivo, linguagem simples e certificado digital. Estude no seu ritmo e evolua profissionalmente." /> 
+     <meta property="og:title" content="Capacitta — Cursos 100% EAD" /> 
+     <meta property="og:description" content="Cursos online com conteúdo direto, flexibilidade e certificado digital." /> 
+     <meta property="og:type" content="website" /> 
+     <title>Capacitta EAD</title> 
+     
+     <script src="https://cdn.tailwindcss.com"></script> 
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /> 
+     
+     <style> 
+      /* --- ESTILOS PRESERVADOS (Carrossel, Hero Antiga) --- */
+      body { font-family: 'Montserrat', sans-serif; }
+      .social-proof-section { background-color: #fff; padding: 60px 20px; overflow: hidden; text-align: center; font-family: 'Montserrat', sans-serif;}
+      .section-title { color: #1e3a8a; margin-bottom: 40px; font-size: 1.5rem }
+      .carousel-container { max-width: 1200px; margin: 0 auto; position: relative; -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent); mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent)}
+      .carousel-track { display: flex; gap: 30px; width: max-content; animation: scroll-infinite 40s linear infinite}
+      .carousel-track:hover { animation-play-state: paused}
+      @keyframes scroll-infinite{ 0% { transform: translateX(0)} 100% { transform: translateX(-50%)}}
+      .testimonial-card { background: #fff; border-radius: 20px; padding: 30px 20px; width: 300px; flex-shrink: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.15); display: flex; flex-direction: column; align-items: center; text-align: center}
+      .profile-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid #e2e8f0; margin-bottom: 15px }
+      .student-name { color: #0a1e3f; font-weight: 700; font-size: 1.1rem; margin-bottom: 10px }
+      .testimonial-text { color: #555; font-size: .9rem; line-height: 1.4; margin-bottom: 15px; font-style: italic }
+      .stars { color: #FFD700; font-size: .9rem }
+      @media (prefers-reduced-motion: reduce){
+          .carousel-track { animation: none !important; transform: none !important; }
+          .carousel-container { -webkit-mask-image: none !important; mask-image: none !important; overflow-x: auto; }
+      }
+      :root {
+          --navy: #0B1F3B;
+          --navy-2: #0A2A52;
+          --ice: #EAF2FF;
+          --ice-2: #CFE0FF;
+      }
+      .bg-navy { background: var(--navy); }
+      .bg-navy-2 { background: var(--navy-2); }
+      .text-ice { color: var(--ice); }
+      .text-ice-2 { color: var(--ice-2); }
+      .ring-soft { box-shadow: 0 10px 30px rgba(11,31,59,.18); }
+      
+      .hero-container { position: relative; width: 100%; min-height: 600px; background-image: url('Hero 1.png'); background-size: cover; background-position: top center; display: flex; align-items: center; justify-content: center; padding: 40px 20px; }
+      .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 30, 61, 0.75); z-index: 1; }
+      .hero-content { position: relative; z-index: 2; max-width: 1200px; background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: left; display: flex; align-items: center; gap: 40px; }
+      @media (max-width: 768px) {
+        .hero-content { flex-direction: column; text-align: center; }
+      }
+      .course-title { color: var(--cap-navy); font-size: 30px; font-weight: 800; margin-bottom: 15px; line-height: 1.2; }
+      @media(min-width: 768px) { 
+        .course-title { font-size: 34px; }
+        .hero-text-content .course-description { margin-left: 0; margin-right: 0; text-align: left; }
+      }
+      .course-description { color: #666; font-size: 16px; max-width: 700px; margin: 0 auto 40px auto; line-height: 1.5; }
+      .btn-capacitta { background-color: var(--cap-gold); color: var(--cap-navy); font-size: 18px; font-weight: 800; padding: 15px 40px; border: none; border-radius: 50px; cursor: pointer; text-decoration: none; display: inline-block; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4); }
+      .btn-capacitta:hover { transform: scale(1.03); background-color: #ffca2c; }
+
+       /* --- VARIÁVEIS VISUAIS CAPACITTA --- */ 
+       :root { 
+           --cap-navy: #0B1E3D;       /* Azul Navy Profundo */ 
+           --cap-navy-hover: #162a52; /* Azul Médio */ 
+           --cap-gold: #FFC107;       /* Amarelo Ouro */ 
+           --cap-gold-dark: #d4a000; 
+           --cap-bg-light: #F8FAFC;   /* Fundo Off-white */ 
+           --cap-text: #333333;       /* Texto Padrão */ 
+           --cap-white: #ffffff; 
+       } 
+ 
+       body { font-family: 'Montserrat', sans-serif; background-color: var(--cap-bg-light); color: var(--cap-text); } 
+ 
+       /* --- HERO SECTION (CORRIGIDA) --- */ 
+       .hero-home { 
+           background: linear-gradient(135deg, var(--cap-navy) 0%, var(--cap-navy-hover) 100%); 
+           color: var(--cap-white); 
+           padding: 100px 20px 80px; /* Espaçamento ajustado */ 
+           position: relative; 
+           overflow: hidden; 
+       } 
+       
+       /* Efeito de Fundo Sutil */ 
+       .hero-home::before { 
+           content: ''; 
+           position: absolute; 
+           top: -100px; 
+           right: -100px; 
+           width: 600px; 
+           height: 600px; 
+           background: radial-gradient(circle, rgba(255,193,7,0.08) 0%, transparent 70%); 
+           border-radius: 50%; 
+           pointer-events: none; 
+       } 
+ 
+       .hero-home-content { 
+           max-width: 1200px; 
+           margin: 0 auto; 
+           display: flex; 
+           align-items: center; 
+           justify-content: space-between; 
+           gap: 50px; 
+           position: relative; 
+           z-index: 10; 
+       } 
+ 
+       .hero-text { flex: 1; min-width: 300px; } 
+       
+       .hero-text h1 { 
+           font-size: 2.8rem; 
+           font-weight: 800; 
+           line-height: 1.1; 
+           margin-bottom: 20px; 
+       } 
+       .hero-text h1 span { color: var(--cap-gold); } 
+       
+       .hero-text p { 
+           font-size: 1.1rem; 
+           color: #e2e8f0; 
+           margin-bottom: 30px; 
+           line-height: 1.6; 
+           max-width: 550px; 
+       } 
+ 
+       .hero-image { 
+           flex: 1; 
+           display: flex; 
+           justify-content: center; 
+           perspective: 1000px; 
+       } 
+       
+       .hero-image img { 
+           max-width: 100%; 
+           height: auto; 
+           /* Efeito 3D sutil para destacar o notebook igual referência */ 
+           transform: rotateY(-5deg); 
+           transition: transform 0.5s ease; 
+           filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4)); 
+       } 
+       
+       .hero-image:hover img { transform: rotateY(0deg) scale(1.02); } 
+ 
+       /* --- BOTÕES --- */ 
+       .btn-gold { 
+           background-color: var(--cap-gold); 
+           color: var(--cap-navy); 
+           font-weight: 700; 
+           padding: 14px 35px; 
+           border-radius: 50px; 
+           text-decoration: none; 
+           display: inline-flex; 
+           align-items: center; 
+           gap: 10px; 
+           transition: transform 0.3s, box-shadow 0.3s; 
+           box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3); 
+       } 
+       .btn-gold:hover { 
+           background-color: #ffca2c; 
+           transform: translateY(-3px); 
+           box-shadow: 0 10px 25px rgba(255, 193, 7, 0.4); 
+       } 
+ 
+       .btn-outline { 
+           border: 2px solid rgba(255,255,255,0.3); 
+           color: var(--cap-white); 
+           font-weight: 600; 
+           padding: 12px 30px; 
+           border-radius: 50px; 
+           text-decoration: none; 
+           transition: all 0.3s; 
+           display: inline-flex; 
+           align-items: center; 
+           gap: 10px; 
+       } 
+       .btn-outline:hover { 
+           border-color: var(--cap-white); 
+           background-color: rgba(255,255,255,0.1); 
+       } 
+ 
+       /* --- SEÇÃO CURSOS --- */ 
+       .courses-section { padding: 80px 20px; background-color: var(--cap-bg-light); } 
+       .section-header { text-align: center; max-width: 800px; margin: 0 auto 60px; } 
+       .section-header h2 { font-size: 2.2rem; font-weight: 800; color: var(--cap-navy); margin-bottom: 10px; } 
+       .section-header h2 span { color: var(--cap-navy); border-bottom: 4px solid var(--cap-gold); } 
+       .section-header p { color: #64748b; font-size: 1.1rem; } 
+       
+       .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; } 
+       
+       .course-card { 
+           background: white; 
+           border-radius: 20px; 
+           overflow: hidden; 
+           box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+           transition: transform 0.3s, box-shadow 0.3s; 
+           display: flex; 
+           flex-direction: column; 
+           border: 1px solid rgba(0,0,0,0.03); 
+       } 
+       .course-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(11, 30, 61, 0.15); border-color: var(--cap-gold); } 
+       
+       .course-thumb { 
+           background-color: var(--cap-navy-hover); 
+           height: 160px; 
+           display: flex; 
+           align-items: center; 
+           justify-content: center; 
+           position: relative; 
+           overflow: hidden; 
+       } 
+       .course-thumb i { font-size: 4rem; color: rgba(255,255,255,0.2); transition: color 0.3s; } 
+       .course-card:hover .course-thumb i { color: var(--cap-gold); }
+       
+       /* --- NOVOS ESTILOS (Adicionados) --- */
+       .course-body { padding: 30px; flex: 1; display: flex; flex-direction: column; } 
+       .course-tag { background-color: #e0f2fe; color: var(--cap-navy); padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; width: fit-content; } 
+       .course-title { font-size: 1.25rem; font-weight: 700; color: var(--cap-navy); margin-bottom: 10px; line-height: 1.3; } 
+       .course-desc { color: #64748b; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; flex: 1; } 
+       .course-meta { display: flex; align-items: center; justify-content: space-between; padding-top: 20px; border-top: 1px solid #f1f5f9; } 
+       .course-meta span { color: #64748b; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 5px; } 
+       .course-link { color: var(--cap-navy); font-weight: 700; font-size: 0.9rem; text-decoration: none; display: flex; align-items: center; gap: 5px; transition: color 0.2s; } 
+       .course-link:hover { color: var(--cap-gold-dark); gap: 8px; } 
+ 
+       /* --- DEPOIMENTOS --- */ 
+       .social-proof-section { background-color: white; padding: 80px 20px; overflow: hidden; text-align: center; } 
+       .section-title { color: var(--cap-navy); margin-bottom: 50px; font-size: 2rem; font-weight: 800; } 
+       .carousel-container { max-width: 1200px; margin: 0 auto; position: relative; -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); } 
+       .carousel-track { display: flex; gap: 30px; width: max-content; animation: scroll-infinite 40s linear infinite; } 
+       .carousel-track:hover { animation-play-state: paused; } 
+       @keyframes scroll-infinite { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } } 
+       .testimonial-card { background: #f8fafc; border-radius: 20px; padding: 30px; width: 320px; flex-shrink: 0; border: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; text-align: center; } 
+       .profile-img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cap-gold); margin-bottom: 15px; } 
+       .student-name { color: var(--cap-navy); font-weight: 700; font-size: 1.1rem; margin-bottom: 5px; } 
+       .testimonial-text { color: #64748b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px; font-style: italic; } 
+       .stars { color: var(--cap-gold); font-size: 0.9rem; } 
+ 
+       /* MVV Section Styles */ 
+       .bg-navy { background: var(--cap-navy); } 
+       .bg-navy-2 { background: var(--cap-navy-hover); } 
+       .ring-soft { box-shadow: 0 10px 30px rgba(11,31,59,.1); border: 1px solid rgba(255,255,255,0.05); } 
+       
+       /* Footer */ 
+       .footer-nifty { background-color: var(--cap-navy); color: white; padding: 60px 20px 30px; text-align: center; border-top: 4px solid var(--cap-gold); } 
+       .footer-logo { font-size: 32px; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; } 
+       .footer-logo span { color: var(--cap-gold); } 
+       .footer-desc { color: #cbd5e1; max-width: 600px; margin: 0 auto 30px; font-size: 0.95rem; line-height: 1.6; } 
+       .footer-contact { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px; } 
+       .contact-item { background: rgba(255,255,255,0.05); padding: 10px 20px; border-radius: 50px; text-decoration: none; color: white; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; transition: all 0.2s; } 
+       .contact-item:hover { background: rgba(255,193,7,0.15); color: var(--cap-gold); transform: translateY(-2px); } 
+       .contact-item i { color: var(--cap-gold); } 
+       .footer-legal { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; } 
+ 
+       /* Responsividade */ 
+       @media (max-width: 900px) { 
+           .hero-home-content { flex-direction: column; text-align: center; } 
+           .hero-text h1 { font-size: 2.2rem; } 
+           .hero-text p { margin-left: auto; margin-right: auto; } 
+           .hero-image img { transform: none; margin-top: 20px; } 
+           .hero-home::before { width: 300px; height: 300px; } 
+       } 
+    </style>
+  </head>
+  <body class="bg-white text-blue-900">
+    <header class="w-full text-blue-900 shadow-sm fixed top-0 left-0 z-30 bg-white"> 
+       <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3"> 
+         <div class="flex items-center gap-2"> 
+           <a href="index.html"><img src="Capacitta 1.png" alt="Capacitta" class="h-16 w-auto object-contain" /></a> 
+         </div> 
+         <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-gray-600"> 
+           <a href="#inicio" class="hover:text-blue-900 transition">Início</a> 
+           <a href="#cursos" class="hover:text-blue-900 transition">Nossos Cursos</a> 
+           <a href="#sobre" class="hover:text-blue-900 transition">Sobre</a> 
+           <a href="#contato" class="hover:text-blue-900 transition">Contato</a> 
+         </nav> 
+         <div class="flex items-center gap-4"> 
+           <a href="area-restrita.html" class="hidden md:flex items-center gap-2 text-xs sm:text-sm bg-gray-100 text-gray-800 hover:bg-gray-200 font-bold py-2 px-4 rounded-full transition-colors"> 
+             <i class="fa-solid fa-user"></i> Área do Aluno 
+           </a> 
+           <button id="mobile-menu-button" class="md:hidden p-2 rounded hover:bg-gray-100" aria-label="Abrir menu"> 
+             <i class="fa-solid fa-bars text-xl text-blue-900"></i> 
+           </button> 
+         </div> 
+       </div>
+       
+       <!-- Mobile Menu (Mantido) -->
+       <nav id="mobile-menu" class="hidden md:hidden w-full border-t border-gray-100 shadow-lg bg-white">
+        <div class="flex flex-col px-4 py-4 space-y-4">
+          <a href="#inicio" class="text-blue-900 hover:text-blue-700 block font-bold">Início</a>
+          <a href="#cursos" class="text-blue-900 hover:text-blue-700 block font-bold">Nossos Cursos</a>
+          <a href="#sobre" class="text-blue-900 hover:text-blue-700 block font-bold">Sobre</a>
+          <a href="#contato" class="text-blue-900 hover:text-blue-700 block font-bold">Contato</a>
+          <a href="#politica" class="text-blue-900 hover:text-blue-700 block font-bold">Política de Privacidade</a>
+          <hr class="border-gray-200">
+          <a class="text-blue-900 hover:text-blue-700 block font-bold" href="aluno.html">Área do Aluno</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="pt-20" id="inicio">
+      
+     <section class="hero-container">
+         <div class="hero-overlay"></div>
+         <div class="hero-content">
+             <div class="hero-text-content">
+                 <span class="course-tag">CAPACITTA</span>
+                 <h1 class="course-title">Transforme seu Futuro Profissional</h1>
+                 <p class="course-description">
+                     Cursos EAD na área da saúde com certificado válido em todo o Brasil. Flexibilidade, qualidade e suporte especializado para sua carreira decolar.
+                 </p>
+                 <a href="#cursos" class="btn-capacitta">CONHEÇA NOSSOS CURSOS</a>
+             </div>
+
+         </div>
+     </section>
+
+      
+      
+
+      
+
+
+      
+
+      
+
+      
+
+      <section class="py-12 px-4 bg-white text-blue-900">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 items-center">
+          <div class="text-center md:text-left" aria-labelledby="titulo-certificado">
+            <h2 id="titulo-certificado" class="text-2xl md:text-3xl font-bold mb-4">CONHEÇA NOSSO CERTIFICADO</h2>
+            <p class="text-blue-900 mb-4">Emissão de certificado digital. Use para horas extracurriculares, currículo, seleções, promoções, concursos e provas de títulos.</p>
+            <p class="text-xs text-blue-800">Nota: verifique sempre o edital da instituição ou concurso.</p>
+          </div>
+          <div class="flex justify-center md:justify-end">
+            <img src="Certificado Capacita.png" alt="Mockup do certificado Capacitta" class="rounded-lg shadow-lg max-w-md w-full" loading="lazy" decoding="async" />
+          </div>
+        </div>
+      </section>
+
+      <section class="social-proof-section bg-gray-50 py-20">
+        <div class="max-w-6xl mx-auto px-4 mb-12 text-center">
+          <h2 class="text-3xl font-extrabold text-blue-900 mb-4">O que nossos alunos dizem</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">Junte-se a milhares de profissionais que já transformaram suas carreiras com a Capacitta.</p>
+        </div>
+        
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <!-- Card 1 -->
+            <div class="testimonial-card">
+              <img src="depoimento1.png" alt="Mariana Silva" class="profile-img">
+              <h3 class="student-name">Mariana Silva</h3>
+              <p class="testimonial-text">"Consegui entender tudo com facilidade, as aulas são bem explicadas e o certificado já está no meu currículo."</p>
+              <div class="stars flex justify-center gap-1 text-amber-400">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="testimonial-card">
+              <img src="depoimento2.png" alt="Marcos Xavier" class="profile-img">
+              <h3 class="student-name">Marcos Xavier</h3>
+              <p class="testimonial-text">"Plataforma leve e consegui estudar mesmo com a rotina de plantão. Recomendo demais!"</p>
+              <div class="stars flex justify-center gap-1 text-amber-400">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="testimonial-card">
+              <img src="depoimento3.png" alt="Carlos Alberto" class="profile-img">
+              <h3 class="student-name">Carlos Alberto</h3>
+              <p class="testimonial-text">"O curso é direto, sem enrolação. Usei o certificado para comprovar horas e deu super certo."</p>
+              <div class="stars flex justify-center gap-1 text-amber-400">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="testimonial-card">
+              <img src="depoimento4.png" alt="Roberta Rosario" class="profile-img">
+              <h3 class="student-name">Roberta Rosario</h3>
+              <p class="testimonial-text">"Depois do curso consegui uma vaga em clínica e me senti mais preparada para o atendimento."</p>
+              <div class="stars flex justify-center gap-1 text-amber-400">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+            <!-- Repetição para efeito infinito (opcional, mas o CSS pede) -->
+            <div class="testimonial-card">
+              <img src="depoimento1.png" alt="Mariana Silva" class="profile-img">
+              <h3 class="student-name">Mariana Silva</h3>
+              <p class="testimonial-text">"Consegui entender tudo com facilidade, as aulas são bem explicadas e o certificado já está no meu currículo."</p>
+              <div class="stars flex justify-center gap-1 text-amber-400">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+ <section id="mvv" class="py-14 px-4 bg-white text-blue-900"> 
+   <div class="max-w-6xl mx-auto"> 
+     <header class="text-center mb-10"> 
+       <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight"> 
+         Missão, Visão e Valores 
+       </h2> 
+       <p class="mt-3 text-sm md:text-base text-gray-700 max-w-3xl mx-auto"> 
+         A Capacitta é 100% EAD: ensino prático, linguagem simples e foco em resultados para o aluno evoluir com flexibilidade. 
+       </p> 
+     </header> 
+ 
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Missão -->
+      <article class="bg-navy rounded-2xl ring-soft p-8 text-center md:text-left transition hover:-translate-y-1">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-navy-2 mb-6 text-white text-xl">
+          <i class="fa-solid fa-bullseye"></i>
+        </div>
+        <h3 class="text-white text-xl font-bold mb-3">Missão</h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Democratizar a qualificação profissional por meio de cursos 100% online, ajudando o aluno a desenvolver competências reais para o mercado.
+        </p>
+      </article>
+
+      <!-- Visão -->
+      <article class="bg-navy rounded-2xl ring-soft p-8 text-center md:text-left transition hover:-translate-y-1">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-navy-2 mb-6 text-white text-xl">
+          <i class="fa-solid fa-eye"></i>
+        </div>
+        <h3 class="text-white text-xl font-bold mb-3">Visão</h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Ser referência em ensino EAD, oferecendo uma plataforma intuitiva e certificação respeitada que impulsiona carreiras em todo o Brasil.
+        </p>
+      </article>
+
+      <!-- Valores -->
+      <article class="bg-navy rounded-2xl ring-soft p-8 text-center md:text-left transition hover:-translate-y-1">
+        <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-navy-2 mb-6 text-white text-xl">
+          <i class="fa-solid fa-handshake"></i>
+        </div>
+        <h3 class="text-white text-xl font-bold mb-3">Valores</h3>
+        <ul class="text-gray-300 text-sm leading-relaxed space-y-2 text-left inline-block">
+            <li class="flex items-center"><i class="fa-solid fa-check text-amber-400 mr-2"></i>Compromisso com o aluno</li>
+            <li class="flex items-center"><i class="fa-solid fa-check text-amber-400 mr-2"></i>Qualidade e inovação</li>
+            <li class="flex items-center"><i class="fa-solid fa-check text-amber-400 mr-2"></i>Ética e transparência</li>
+        </ul>
+      </article>
+    </div> 
+   </div> 
+ </section>
+      
+
+      
+
+      <section id="sobre" class="py-20 bg-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Texto (Agora na esquerda) -->
+            <div class="order-2 md:order-1">
+              <div class="inline-block bg-blue-50 text-blue-900 px-4 py-2 rounded-full text-sm font-bold mb-6">
+                <i class="fa-solid fa-building-columns mr-2"></i> Instituição de Ensino
+              </div>
+              <h2 class="text-3xl md:text-4xl font-extrabold text-blue-900 mb-6 leading-tight">
+                Qualificação que faz a diferença na sua carreira
+              </h2>
+              <p class="text-gray-600 mb-6 text-lg leading-relaxed">
+                A Capacitta nasceu com o propósito de tornar o ensino acessível e direto ao ponto.
+                Nossos cursos são desenvolvidos por especialistas e focados no que o mercado realmente exige.
+              </p>
+              
+              <ul class="space-y-4 mb-8">
+                  <li class="flex items-start">
+                      <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1 mr-3">
+                          <i class="fa-solid fa-check text-green-600 text-xs"></i>
+                      </div>
+                      <span class="text-gray-700">Metodologia 100% Online e Flexível</span>
+                  </li>
+                  <li class="flex items-start">
+                      <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1 mr-3">
+                          <i class="fa-solid fa-check text-green-600 text-xs"></i>
+                      </div>
+                      <span class="text-gray-700">Certificado Válido em Todo o Brasil</span>
+                  </li>
+                  <li class="flex items-start">
+                      <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-1 mr-3">
+                          <i class="fa-solid fa-check text-green-600 text-xs"></i>
+                      </div>
+                      <span class="text-gray-700">Suporte Dedicado ao Aluno</span>
+                  </li>
+              </ul>
+            </div>
+
+            <!-- Imagem (Agora na direita) -->
+            <div class="order-1 md:order-2 relative">
+                <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-amber-400 rounded-3xl transform rotate-3 opacity-20 blur-lg"></div>
+                <img src="equipe.jpeg" onerror="this.onerror=null; this.src='EQUIPE 1.png'" alt="Equipe Capacitta" class="relative rounded-3xl shadow-2xl transform -rotate-2 hover:rotate-0 transition duration-500 w-full object-cover h-[400px]">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+     <section id="cursos" class="courses-section"> 
+         <div class="section-header"> 
+             <h2>Formações em <span>Alta Demanda</span></h2> 
+             <p>Escolha o caminho mais rápido para sua estabilidade financeira e profissional.</p> 
+         </div> 
+  
+         <div class="courses-grid"> 
+              
+             <article class="course-card"> 
+                 <div class="course-thumb"> 
+                     <i class="fa-solid fa-headset"></i> 
+                 </div> 
+                 <div class="course-body"> 
+                     <span class="course-tag">Administrativo</span> 
+                     <h3 class="course-title">Assessoria Executiva em Ambientes Clínicos</h3> 
+                     <p class="course-desc">Torne-se indispensável para médicos e gestores. Domine agendamentos, softwares de saúde e o atendimento de alto padrão.</p> 
+                     <div class="course-meta"> 
+                        <span><i class="fa-regular fa-clock"></i> 6 Horas</span> 
+                        <a href="secretariado.html" class="course-link">Ver Detalhes <i class="fa-solid fa-arrow-right"></i></a> 
+                    </div> 
+                 </div> 
+             </article> 
+  
+             <article class="course-card"> 
+                 <div class="course-thumb"> 
+                     <i class="fa-solid fa-pills"></i> 
+                 </div> 
+                 <div class="course-body"> 
+                     <span class="course-tag">Farmácia</span> 
+                    <h3 class="course-title">Rotinas Farmacêuticas e Hospitalares</h3> 
+                    <p class="course-desc">A qualificação essencial para atuar em drogarias e farmácias hospitalares. Aprenda controle de estoque, dispensação e legislação.</p> 
+                    <div class="course-meta"> 
+                        <span><i class="fa-regular fa-clock"></i> 6 Horas</span> 
+                        <a href="gestao-farmaceutica.html" class="course-link">Ver Detalhes <i class="fa-solid fa-arrow-right"></i></a> 
+                    </div> 
+                 </div> 
+             </article> 
+  
+             <article class="course-card"> 
+                 <div class="course-thumb"> 
+                     <i class="fa-solid fa-user-nurse"></i> 
+                 </div> 
+                 <div class="course-body"> 
+                     <span class="course-tag">Enfermagem</span> 
+                     <h3 class="course-title">Enfermagem para Ambientes Corporativos</h3> 
+                     <p class="course-desc">Expanda sua atuação para além dos hospitais. Capacitação técnica focada na saúde ocupacional e gestão de cuidados empresariais.</p> 
+                     <div class="course-meta"> 
+                        <span><i class="fa-regular fa-clock"></i> 6 Horas</span> 
+                        <a href="Enfermagem para Ambientes Corporativos.html" class="course-link">Ver Detalhes <i class="fa-solid fa-arrow-right"></i></a> 
+                    </div> 
+                 </div> 
+             </article> 
+  
+             <article class="course-card"> 
+                 <div class="course-thumb"> 
+                     <i class="fa-solid fa-flask"></i> 
+                 </div> 
+                 <div class="course-body"> 
+                     <span class="course-tag">Análises Clínicas</span> 
+                     <h3 class="course-title">Análises Clínicas para Ambientes Hospitalares</h3> 
+                     <p class="course-desc">Domine técnicas de coleta de amostras, processamento de exames e interpretação de resultados em hospitais e laboratórios.</p> 
+                     <div class="course-meta"> 
+                        <span><i class="fa-regular fa-clock"></i> 6 Horas</span> 
+                        <a href="analises-clinicas.html" class="course-link">Ver Detalhes <i class="fa-solid fa-arrow-right"></i></a> 
+                    </div> 
+                 </div> 
+             </article>
+
+         </div> 
+     </section>
+
+
+
+     <section class="hero-home"> 
+        <div class="hero-home-content"> 
+            <div class="hero-text"> 
+                <h1>Eleve o nível da sua carreira na <span>área da saúde</span></h1> 
+                 <p> 
+                     Uma metodologia de ensino validada, focada na prática profissional e alinhada às exigências dos maiores contratantes do setor. Conquiste a certificação que abre portas. 
+                 </p> 
+                  
+                 <ul style="margin-bottom: 30px; color: #cbd5e1; font-size: 15px; list-style: none;"> 
+                     <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--cap-gold); margin-right: 10px;"></i> Certificado Válido em todo o Brasil</li> 
+                     <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--cap-gold); margin-right: 10px;"></i> Acesso Vitalício (Sem mensalidades)</li> 
+                     <li style="margin-bottom: 8px;"><i class="fa-solid fa-check" style="color: var(--cap-gold); margin-right: 10px;"></i> Suporte direto com especialistas</li> 
+                 </ul> 
+  
+                 <div style="display: flex; gap: 15px; flex-wrap: wrap;"> 
+                     <a href="#cursos" class="btn-gold">QUERO ME QUALIFICAR</a> 
+                     <a href="aluno.html" class="btn-outline">ÁREA DO ALUNO</a> 
+                 </div> 
+             </div> 
+             <div class="hero-image"> 
+                 <img src="notebook.png" alt="Estudante de Sucesso Capacitta"> 
+             </div> 
+         </div> 
+     </section>
+
+      <section id="politica" class="px-4 py-12 bg-white text-blue-900">
+        <div class="max-w-6xl mx-auto">
+          <header class="text-center mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold">Política de Privacidade</h2>
+            <p class="mt-2 text-sm text-gray-700">
+              Última atualização: <strong>12/01/2026</strong>
+            </p>
+          </header>
+      
+          <div class="bg-gray-50 rounded-xl p-6 md:p-8 shadow-sm mb-8">
+            <h3 class="text-xl md:text-2xl font-bold text-blue-900 mb-3">Quem Somos</h3>
+            <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+              A <strong>Capacitta</strong> é uma empresa focada no aprendizado do aluno. Com anos de experiência no mercado 
+              e mais de <strong>3.000 alunos formados</strong>, buscamos oferecer uma experiência de estudo clara, prática e eficiente. Atuamos 
+              com <strong>cursos profissionalizantes</strong>, <strong>cursos técnicos por competência</strong>, <strong>técnicos tradicionais</strong> e <strong>pós-graduação</strong>, sempre com o compromisso de 
+              entregar conteúdo objetivo e suporte ao aluno durante a jornada.
+            </p>
+            <p class="text-xs text-gray-600 mt-3">
+              Observação: edite a lista de modalidades/cursos acima conforme o catálogo atual da Capacitta.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <article class="bg-white rounded-xl p-6 md:p-8 shadow border border-gray-100">
+              <h3 class="text-lg font-bold mb-3">A Capacitta é reconhecida pelo MEC?</h3>
+              <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+                A Capacitta atua em conformidade com a legislação aplicável à educação profissional e educacional.
+                Quando aplicável ao tipo de curso, a certificação pode envolver registros e diretrizes do
+                <strong>MEC</strong> por meio do <strong>SISTEC</strong>.
+              </p>
+
+              <h4 class="text-base font-semibold mt-5 mb-2">O que é o SISTEC?</h4>
+              <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+                O <strong>SISTEC</strong> (Sistema Nacional de Informações da Educação Profissional e Tecnológica) é o sistema oficial
+                do MEC responsável pelo registro, acompanhamento e validação de informações relacionadas aos cursos técnicos e à educação
+                profissional no Brasil.
+              </p>
+            </article>
+
+            <article class="bg-white rounded-xl p-6 md:p-8 shadow border border-gray-100">
+              <h3 class="text-lg font-bold mb-3">Quais dados coletamos?</h3>
+              <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+                Para melhorar sua experiência e permitir atendimento, suporte e comunicações sobre nossos cursos,
+                podemos coletar dados como <strong>nome</strong>, <strong>telefone</strong> e <strong>e-mail</strong>.
+              </p>
+
+              <h4 class="text-base font-semibold mt-5 mb-2">Em quais páginas os dados são captados?</h4>
+              <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+                Os dados serão informados por você ao preencher formulários no site (por exemplo, pop-ups e formulários de interesse)
+                e/ou durante o processo de compra.
+              </p>
+            </article>
+
+            <article class="bg-white rounded-xl p-6 md:p-8 shadow border border-gray-100">
+              <h3 class="text-lg font-bold mb-3">Finalidade do uso dos dados</h3>
+              <ul class="text-sm md:text-base text-gray-900 list-disc list-inside space-y-2 leading-relaxed">
+                <li>Atender pedidos e dúvidas enviadas pelos canais de contato.</li>
+                <li>Enviar informações sobre cursos, atualizações e comunicações (quando permitido).</li>
+                <li>Processar compras, liberar acesso e emitir certificado (quando aplicável).</li>
+                <li>Melhorar a navegação, segurança e desempenho do site.</li>
+              </ul>
+
+              <h4 class="text-base font-semibold mt-5 mb-2">Cookies</h4>
+              <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+                Usamos cookies para melhorar sua experiência e reduzir a necessidade de repetir informações.
+                Você pode gerenciar cookies no seu navegador. Alguns cookies
+                expiram em até <strong>12 meses</strong>.
+              </p>
+            </article>
+
+            <article class="bg-white rounded-xl p-6 md:p-8 shadow border border-gray-100">
+              <h3 class="text-lg font-bold mb-3">Compartilhamento e divulgação</h3>
+              <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+                Não vendemos seus dados. Seus dados poderão ser compartilhados apenas quando necessário para
+                prestação do serviço (por exemplo, meios técnicos/operacionais) e/ou em caso de
+                <strong>determinação legal ou judicial</strong>.
+              </p>
+
+              <h4 class="text-base font-semibold mt-5 mb-2">Segurança no processamento de compras</h4>
+              <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+                Utilizamos medidas de segurança para proteger as informações trafegadas e armazenadas. O site
+                opera com <strong>certificado SSL</strong>. Informamos que <strong>não armazenamos dados de cartão</strong>
+                (crédito/débito) em nossa base — essas informações são tratadas pelos meios de pagamento durante a transação.
+              </p>
+            </article>
+          </div>
+
+          <div class="mt-8 bg-gray-50 rounded-xl p-6 md:p-8 shadow-sm">
+            <h3 class="text-lg md:text-xl font-bold mb-3">Como revisar, corrigir ou excluir seus dados?</h3>
+            <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+              Você pode solicitar a revisão, correção ou exclusão de seus dados pessoais a qualquer momento.
+              Para isso, entre em contato pelo e-mail:
+              <a class="font-semibold underline" href="mailto:contato@capacitaead.com">contato@capacitaead.com</a>.
+            </p>
+
+            <h4 class="text-base font-semibold mt-5 mb-2">Por quanto tempo os dados ficam armazenados?</h4>
+            <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+              Os dados de cookies podem ser mantidos por até <strong>12 meses</strong>. Dados cadastrais e informações possíveis
+              para acesso a cursos e comprovações (quando aplicável) podem ser mantidos por prazo indeterminado, respeitando especificamente as
+              obrigações legais.
+            </p>
+
+            <h4 class="text-base font-semibold mt-5 mb-2">Atualizações desta política</h4>
+            <p class="text-sm md:text-base text-gray-900 leading-relaxed">
+              Reservamo-nos o direito de atualizar esta Política de Privacidade a qualquer momento, para refletir melhorias e adequações.
+              Em caso de dúvidas, estamos à disposição pelos nossos canais oficiais.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+ 
+ 
+<footer class="bg-navy text-white pt-16 pb-8 border-t-4 border-amber-400">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+        <div class="mb-8">
+            <h2 class="text-3xl font-extrabold tracking-tight">Capacitta<span class="text-amber-400">.</span></h2>
+            <p class="mt-4 text-gray-400 max-w-lg mx-auto">
+                Referência em ensino a distância na área da saúde. Certificação válida e respeitada em todo o Brasil.
+            </p>
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-6 mb-12">
+            <a href="mailto:contato@capacitaead.com" class="flex items-center gap-2 bg-white/5 hover:bg-white/10 px-6 py-3 rounded-full transition duration-300">
+                <i class="fa-solid fa-envelope text-amber-400"></i>
+                <span>contato@capacitaead.com</span>
+            </a>
+            <div class="flex items-center gap-2 bg-white/5 px-6 py-3 rounded-full">
+                <i class="fa-solid fa-clock text-amber-400"></i>
+                <span>Seg. a Sex. — 09:00 às 18:00</span>
+            </div>
+        </div>
+        
+        <div class="border-t border-white/10 pt-8 text-sm text-gray-500">
+            <p class="mb-2">CNPJ: 19.384.423/0001-80</p>
+            <p>&copy; 2026 Capacitta Cursos Profissionalizantes. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+  <script>
+    const btnMobile = document.getElementById('mobile-menu-button');
+    const menuMobile = document.getElementById('mobile-menu');
+
+    btnMobile?.addEventListener('click', () => {
+        menuMobile.classList.toggle('hidden');
+        const isExpanded = !menuMobile.classList.contains('hidden');
+        btnMobile.setAttribute('aria-expanded', isExpanded);
+    });
+
+    // Fechar menu ao clicar em um link
+    menuMobile?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuMobile.classList.add('hidden');
+            btnMobile.setAttribute('aria-expanded', 'false');
+        });
+    });
+  </script>
+  </body>
+</html>

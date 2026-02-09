@@ -1,0 +1,369 @@
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; img-src 'self' data: https:;">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Área do Aluno | Capacitta</title> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+<style> 
+    /* --- VARIÁVEIS DA MARCA --- */ 
+    :root { 
+        --capacitta-navy: #0B1E3D; 
+        --capacitta-blue-light: #162a52; 
+        --capacitta-gold: #FFC107; 
+        --capacitta-gold-hover: #ffca2c; 
+        --text-dark: #333; 
+        --text-light: #666; 
+        --bg-input: #f4f6f8; 
+    } 
+
+    * { 
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+    } 
+
+    body { 
+        min-height: 100vh; 
+        display: flex; 
+        flex-direction: column;
+        align-items: center; 
+        justify-content: space-between;
+        background: linear-gradient(135deg, var(--capacitta-navy) 0%, var(--capacitta-blue-light) 100%); 
+        position: relative; 
+    } 
+
+    /* Elemento decorativo de fundo (círculo sutil) */ 
+    body::before { 
+        content: ''; 
+        position: absolute; 
+        width: 600px; 
+        height: 600px; 
+        background: radial-gradient(circle, rgba(255, 193, 7, 0.05) 0%, rgba(255, 255, 255, 0) 70%); 
+        top: -100px; 
+        right: -100px; 
+        border-radius: 50%; 
+        z-index: 0; 
+    } 
+
+    .login-wrapper { 
+        width: 100%; 
+        max-width: 420px; 
+        padding: 20px; 
+        z-index: 1; 
+        margin: auto;
+    } 
+
+    .logo-area { 
+        text-align: center; 
+        margin-bottom: 25px; 
+    } 
+
+    /* Espaço para sua imagem da logo */ 
+    .logo-img { 
+        max-width: 180px; 
+        height: auto; 
+    } 
+
+    .login-card { 
+        background: white; 
+        padding: 40px; 
+        border-radius: 12px; 
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25); 
+        border-top: 5px solid var(--capacitta-gold); /* Detalhe da marca no topo */ 
+        text-align: center; 
+    } 
+
+    .login-title { 
+        color: var(--capacitta-navy); 
+        font-size: 24px; 
+        font-weight: 700; 
+        margin-bottom: 30px; 
+    } 
+
+    .input-group { 
+        text-align: left; 
+        margin-bottom: 20px; 
+    } 
+
+    .input-label { 
+        display: block; 
+        font-size: 14px; 
+        color: var(--text-dark); 
+        margin-bottom: 8px; 
+        font-weight: 600; 
+    } 
+
+    .form-control { 
+        width: 100%; 
+        padding: 12px 15px; 
+        font-size: 15px; 
+        border: 1px solid #ddd; 
+        border-radius: 6px; 
+        background-color: var(--bg-input); 
+        transition: all 0.3s; 
+    } 
+
+    .form-control:focus { 
+        border-color: var(--capacitta-navy); 
+        background-color: #fff; 
+        outline: none; 
+        box-shadow: 0 0 0 3px rgba(11, 30, 61, 0.1); 
+    } 
+
+    .btn-login { 
+        width: 100%; 
+        padding: 14px; 
+        background-color: var(--capacitta-gold); 
+        color: var(--capacitta-navy); 
+        border: none; 
+        border-radius: 6px; 
+        font-size: 16px; 
+        font-weight: 800; 
+        cursor: pointer; 
+        transition: transform 0.2s, background-color 0.2s; 
+        margin-top: 10px; 
+        text-transform: uppercase; 
+        letter-spacing: 0.5px; 
+    } 
+
+    .btn-login:hover { 
+        background-color: var(--capacitta-gold-hover); 
+        transform: translateY(-2px); 
+    } 
+
+    .forgot-password { 
+        display: block; 
+        margin-top: 20px; 
+        font-size: 13px; 
+        color: var(--text-light); 
+        text-decoration: none; 
+        transition: color 0.2s; 
+    }
+    
+    .forgot-password:hover {
+        color: var(--capacitta-navy);
+    }
+    
+    /* Error message style */
+    .error-msg {
+        color: #d32f2f;
+        background-color: #fdecea;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        display: none;
+        border-left: 4px solid #d32f2f;
+    }
+</style> 
+</head> 
+<body> 
+    <div class="login-wrapper"> 
+        <div class="logo-area"> 
+            <a href="index.html">
+                <img src="LOGO AREA DO ALUNO.jpeg" alt="Capacitta" class="logo-img"> 
+            </a>
+        </div> 
+        <div class="login-card"> 
+            <h1 class="login-title">Área do Aluno</h1> 
+            
+            <div id="error-message" class="error-msg">
+                Usuário ou senha incorretos.
+            </div>
+
+            <form id="login-form"> 
+                <div class="input-group"> 
+                    <label class="input-label" for="usuario">Usuário</label> 
+                    <input type="text" id="usuario" class="form-control" placeholder="Seu usuário de acesso" required> 
+                </div> 
+                <div class="input-group"> 
+                    <label class="input-label" for="senha">Senha</label> 
+                    <input type="password" id="senha" class="form-control" placeholder="Sua senha" required> 
+                </div> 
+                <button type="submit" class="btn-login">ENTRAR NA PLATAFORMA</button> 
+            </form> 
+            <a href="#" class="forgot-password">Esqueci minha senha</a> 
+        </div> 
+    </div> 
+
+    <script>
+      // Login Logic
+      const loginForm = document.getElementById('login-form');
+      const errorMessage = document.getElementById('error-message');
+
+      if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const usuarioInput = document.getElementById('usuario');
+          const senhaInput = document.getElementById('senha');
+          
+          const usuario = usuarioInput.value.trim();
+          const senha = senhaInput.value.trim();
+
+          // Credentials check
+          if (usuario === '455702' && senha === '516292') {
+            // Success - Set session token and redirect
+            sessionStorage.setItem('authToken', 'e8f1997c-d71a-4c9e-8d35-3c3f8d8c9e5b'); // Simple token
+            window.location.href = 'area-restrita.html';
+          } else {
+            // Error - Show message
+            errorMessage.style.display = 'block';
+            senhaInput.value = '';
+            senhaInput.focus();
+          }
+        });
+
+        // Hide error message when user starts typing again
+        const inputs = loginForm.querySelectorAll('input');
+        inputs.forEach(input => {
+          input.addEventListener('input', () => {
+            errorMessage.style.display = 'none';
+          });
+        });
+      }
+    </script>
+<style>
+.footer-nifty {
+    background-color: #0B1E3D; /* Azul Navy Profundo */
+    color: #ffffff;
+    padding: 60px 20px 30px;
+    text-align: center;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    border-top: 4px solid #FFC107; /* Detalhe Dourado de acabamento */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Logo Estilizada no Rodapé */
+.footer-logo {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.footer-logo span {
+    color: #FFC107; /* Ponto Dourado */
+}
+
+.footer-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contatos */
+.footer-contact {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background-color: #FFC107;
+    color: #0B1E3D;
+    border-color: #FFC107;
+    transform: translateY(-3px);
+}
+
+.contact-item i {
+    font-size: 18px;
+}
+
+/* Divisor */
+.footer-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin: 40px 0;
+}
+
+/* Legal */
+.footer-legal {
+    font-size: 14px;
+    color: #8899a6;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-legal p {
+    margin: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .footer-contact {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .contact-item {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style>
+
+<footer class="footer-nifty">
+    <div class="footer-container">
+        
+        <div class="footer-logo">
+            Capacitta<span>.</span>
+        </div>
+
+        <p class="footer-desc">
+            A Capacitta é referência em ensino a distância na área da saúde. Nossos cursos unem conformidade legal com a prática exigida pelo mercado, garantindo uma certificação válida e respeitada em todo o Brasil.
+        </p>
+
+        <div class="footer-contact">
+            <a href="mailto:contato@capacitaead.com" class="contact-item">
+                <i class="fa-solid fa-envelope"></i> contato@capacitaead.com
+            </a>
+            <div class="contact-item">
+                <i class="fa-solid fa-clock"></i> Seg. a Sex. — 09:00 às 18:00
+            </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-legal">
+            <p>CNPJ: 19.384.423/0001-80</p>
+            <p>© 2026 Capacitta Cursos Profissionalizantes. Todos os direitos reservados.</p>
+        </div>
+
+    </div>
+</footer>
+</body> 
+</html>
